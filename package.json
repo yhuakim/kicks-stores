@@ -13,6 +13,7 @@
     "preview": "shopify hydrogen preview"
   },
   "devDependencies": {
+    "@netlify/hydrogen-platform": "^1.1.2",
     "@shopify/cli": "3.22.0",
     "@shopify/cli-hydrogen": "3.22.0",
     "autoprefixer": "^10.4.13",
