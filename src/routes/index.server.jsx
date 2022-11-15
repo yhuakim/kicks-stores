@@ -41,7 +41,6 @@ const QUERY = gql`
     nodes {
       id
       title
-      descriptionHtml
       handle
       featuredImage{
         height
