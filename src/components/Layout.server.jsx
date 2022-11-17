@@ -1,4 +1,5 @@
 import { useShopQuery, CacheLong, gql, useUrl, Link } from "@shopify/hydrogen";
+import { Suspense } from "react";
 
 export function Layout({ children }) {
     const { pathname } = useUrl();
@@ -22,7 +23,7 @@ export function Layout({ children }) {
                 </div>
                 <header
                     role="banner"
-                    className={`flex items-center h-16 p-6 md:p-8 lg:p-12 sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 antialiased transition shadow-sm ${isHome ? "bg-black/80 text-white" : "bg-white/80"
+                    className={`flex items-center h-16 p-6 md:p-8 lg:p-12 sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 antialiased transition shadow-sm ${isHome ? "bg-white/80 text-black" : "bg-white/80"
                         }`}
                 >
                     <div className="flex gap-12">
@@ -32,9 +33,11 @@ export function Layout({ children }) {
                     </div>
                 </header>
 
-                <main role="main" id="mainContent" className="flex-grow">
-                    {children}
-                </main>
+                <Suspense>
+                    <main role="main" id="mainContent" className="flex-grow">
+                        {children}
+                    </main>
+                </Suspense>
             </div>
         </>
     );
